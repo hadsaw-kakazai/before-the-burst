@@ -19,12 +19,15 @@ jobs:
           node-version: '20'
           
       - name: Install Dependencies
-        working-directory: ./myapp
-        run: npm ci
+        run: |
+          ls -la
+          cd myapp
+          npm ci
         
       - name: Build
-        working-directory: ./myapp
-        run: npm run build
+        run: |
+          cd myapp
+          npm run build
         
       - name: Deploy to Namecheap
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -32,6 +35,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./myapp/dist/
+          local-dir: myapp/dist/
           server-dir: /public_html/
           dangerous-clean-slate: true
