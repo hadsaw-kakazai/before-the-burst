@@ -1,7 +1,7 @@
 .burst-o-meter {
   padding: 4rem 0;
   background: #1E1E2E;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;

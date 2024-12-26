@@ -18,7 +18,7 @@ jobs:
         npm install
         npm run build
 
-    - name: Deploy to Namecheap via FTP
+    - name: Deploy to FTP
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
         server: ${{ secrets.FTP_SERVER }}
@@ -26,3 +26,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: build/
         server-dir: /public_html
+        debug: true

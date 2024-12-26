@@ -1,7 +1,7 @@
 .thermometer-section {
-    padding: 8rem 2rem;
+    padding: 4rem 0;
     background: #1E1E2E;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
