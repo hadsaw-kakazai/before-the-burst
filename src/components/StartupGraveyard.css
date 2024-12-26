@@ -1,0 +1,311 @@
+.graveyard-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.graveyard-grid {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 2rem 0;
+}
+
+/* Hide scrollbar but keep functionality */
+.graveyard-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.graveyard-grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.tomb-card {
+    flex: 0 0 calc(33.333% - 1.33rem);
+    min-width: 320px;
+    height: 380px;
+    perspective: 1000px;
+    cursor: pointer;
+    animation: floatCard 6s ease-in-out infinite;
+    transform-style: preserve-3d;
+    scroll-snap-align: start;
+}
+
+@keyframes floatCard {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.tomb-front,
+.tomb-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 2rem;
+    border-radius: 16px;
+    background: rgba(30, 30, 46, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.tomb-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: rotateY(0deg);
+    background: linear-gradient(
+        165deg,
+        rgba(30, 30, 46, 0.8) 0%,
+        rgba(30, 30, 46, 0.6) 100%
+    );
+}
+
+.tomb-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(
+        165deg,
+        rgba(30, 30, 46, 0.9) 0%,
+        rgba(30, 30, 46, 0.7) 100%
+    );
+}
+
+.tomb-card.active .tomb-front {
+    transform: rotateY(180deg);
+}
+
+.tomb-card.active .tomb-back {
+    transform: rotateY(360deg);
+}
+
+.tomb-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.rip {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FFE14D;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.years {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.tomb-card h3 {
+    font-size: 1.75rem;
+    margin: 1rem 0;
+    color: white;
+}
+
+.epitaph {
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+}
+
+.cause-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 225, 77, 0.1);
+    color: #FFE14D;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-top: auto;
+}
+
+.tomb-glow {
+    position: absolute;
+    bottom: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 225, 77, 0.15) 0%, transparent 70%);
+    opacity: 0;
+    transition: all 0.5s ease;
+    filter: blur(10px);
+}
+
+.tomb-card:hover .tomb-glow {
+    opacity: 1;
+    bottom: -30%;
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1);
+        opacity: 0.7;
+    }
+}
+
+/* Add staggered animation delay for each card */
+.tomb-card:nth-child(2) {
+    animation-delay: -1.5s;
+}
+
+.tomb-card:nth-child(3) {
+    animation-delay: -3s;
+}
+
+.tomb-card:nth-child(4) {
+    animation-delay: -4.5s;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat .label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+}
+
+.stat .value {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.analyze-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(45deg, #FFE14D, #FFB800);
+    border: none;
+    border-radius: 8px;
+    color: #0B1120;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.analyze-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 225, 77, 0.2);
+}
+
+.graveyard-footer {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.graveyard-footer p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+}
+
+.primary-button {
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #FFE14D, #FFB800);
+    border: none;
+    border-radius: 8px;
+    color: #0B1120;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 225, 77, 0.2);
+}
+
+/* Scroll Navigation */
+.scroll-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.scroll-btn {
+    background: rgba(255, 225, 77, 0.1);
+    border: 1px solid rgba(255, 225, 77, 0.2);
+    color: #FFE14D;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.scroll-btn:hover {
+    background: rgba(255, 225, 77, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 225, 77, 0.1);
+}
+
+.scroll-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 1200px) {
+    .tomb-card {
+        flex: 0 0 calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .tomb-card {
+        flex: 0 0 calc(100% - 1rem);
+        min-width: 280px;
+    }
+    
+    .graveyard-container {
+        padding: 0 0.5rem;
+    }
+    
+    .scroll-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+.graveyard-section {
+    padding: 6rem 2rem;
+    background: #1E1E2E;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Remove the gradient overlay since we want a solid color */
+.graveyard-section::before {
+    display: none;
+} 

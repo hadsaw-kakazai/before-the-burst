@@ -1,0 +1,351 @@
+.analyzer-section {
+    padding: 4rem 0;
+    min-height: 100vh;
+    background: #1E1E2E;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    scroll-behavior: auto;
+}
+
+.terminal-background {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    background: #1E1E2E;
+}
+
+.grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+    transform: perspective(1000px) rotateX(60deg);
+    transform-origin: top;
+    opacity: 0.3;
+}
+
+.data-streams {
+    display: none;
+}
+
+.glow-effect {
+    display: none;
+}
+
+.terminal-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    overflow: visible;
+}
+
+.terminal-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.status-indicators {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #FFE14D;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.status-text {
+    font-size: 0.8rem;
+    color: #FFE14D;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.terminal-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #FFE14D, #FFB800);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+}
+
+.terminal-subheading {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+}
+
+.terminal-window {
+    position: relative;
+    background: rgba(11, 17, 32, 0.95);
+    border: 1px solid rgba(255, 225, 77, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 0 40px rgba(255, 225, 77, 0.05),
+        inset 0 0 20px rgba(255, 225, 77, 0.02);
+    min-height: 300px;
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.terminal-messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    overflow-y: auto;
+    max-height: calc(70vh - 200px);
+}
+
+.ai-welcome {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+.ai-avatar {
+    display: none;
+}
+
+.avatar-glow {
+    display: none;
+}
+
+.terminal-message {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    margin-bottom: 0;
+    padding: 0.8rem;
+    background: rgba(255, 225, 77, 0.05);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    word-break: break-word;
+}
+
+.message-timestamp {
+    font-size: 0.8rem;
+    color: rgba(255, 225, 77, 0.6);
+    flex-shrink: 0;
+    min-width: 75px;
+}
+
+.message-text {
+    color: rgba(255, 255, 255, 0.9);
+    flex: 1;
+}
+
+.analysis-progress {
+    margin: 2rem 0;
+}
+
+.progress-bar {
+    height: 4px;
+    background: rgba(255, 225, 77, 0.1);
+    border-radius: 2px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #FFE14D, #FFB800);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.step-indicator {
+    font-size: 0.9rem;
+    color: rgba(255, 225, 77, 0.8);
+    text-align: right;
+}
+
+.terminal-input-form {
+    margin-top: auto;
+    padding-top: 2rem;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+}
+
+.terminal-input {
+    flex: 1;
+    padding: 1rem 1.2rem;
+    background: rgba(11, 17, 32, 0.6);
+    border: 1px solid rgba(255, 225, 77, 0.2);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.terminal-input:focus {
+    outline: none;
+    border-color: rgba(255, 225, 77, 0.4);
+    box-shadow: 0 0 20px rgba(255, 225, 77, 0.1);
+}
+
+.analyze-button {
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #FFE14D, #FFB800);
+    color: #0B1120;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.button-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, rgba(255, 225, 77, 0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.analyze-button:hover {
+    transform: translateY(-2px);
+}
+
+.analyze-button:hover .button-glow {
+    opacity: 1;
+}
+
+.terminal-footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 225, 77, 0.1);
+}
+
+.data-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.indicator-dot {
+    width: 6px;
+    height: 6px;
+    background: #FFE14D;
+    border-radius: 50%;
+    animation: indicatorPulse 1.5s infinite;
+}
+
+.indicator:nth-child(2) .indicator-dot {
+    animation-delay: 0.5s;
+}
+
+.indicator:nth-child(3) .indicator-dot {
+    animation-delay: 1s;
+}
+
+@keyframes gridFlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 0; }
+}
+
+@keyframes dataStream {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 0; }
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes avatarPulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.2; }
+    100% { transform: scale(1); opacity: 0.5; }
+}
+
+@keyframes messageAppear {
+    from { 
+        opacity: 0;
+        transform: none;
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes indicatorPulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .analyzer-section {
+        padding: 4rem 1rem;
+    }
+
+    .terminal-container {
+        padding: 1rem;
+    }
+
+    .terminal-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .terminal-window {
+        padding: 1.5rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .analyze-button {
+        width: 100%;
+    }
+
+    .data-indicators {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+} 

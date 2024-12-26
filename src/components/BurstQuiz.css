@@ -1,0 +1,245 @@
+.burst-quiz-section {
+    padding: 8rem 0;
+    background: #1E1E2E;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+.quiz-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.quiz-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #FFE14D, #FFB800);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+}
+
+.quiz-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+}
+
+.scenario-card {
+    background: rgba(11, 17, 32, 0.95);
+    border: 1px solid rgba(255, 225, 77, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 0 40px rgba(255, 225, 77, 0.05),
+        inset 0 0 20px rgba(255, 225, 77, 0.02);
+}
+
+.scenario-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.scenario-header h3 {
+    font-size: 2rem;
+    color: #FFE14D;
+    margin-bottom: 0.5rem;
+}
+
+.scenario-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.metric {
+    background: rgba(255, 225, 77, 0.05);
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.metric-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.metric-value {
+    color: #FFE14D;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.prediction-slider {
+    text-align: center;
+}
+
+.prediction-slider label {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.slider-container {
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.slider {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 225, 77, 0.1);
+    border-radius: 3px;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #FFE14D;
+    cursor: pointer;
+    border: 2px solid rgba(255, 225, 77, 0.2);
+    box-shadow: 0 0 10px rgba(255, 225, 77, 0.3);
+    transition: all 0.3s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+.slider-value {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #FFE14D;
+    font-weight: 600;
+}
+
+.predict-button, .next-button, .reset-button {
+    background: linear-gradient(45deg, #FFE14D, #FFB800);
+    color: #0B1120;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.predict-button:hover, .next-button:hover, .reset-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 225, 77, 0.3);
+}
+
+.result-container {
+    text-align: center;
+}
+
+.predictions {
+    margin-bottom: 2rem;
+}
+
+.prediction {
+    margin-bottom: 1rem;
+}
+
+.prediction span {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+}
+
+.prediction-bar {
+    height: 30px;
+    background: linear-gradient(90deg, #FFE14D, #FFB800);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0B1120;
+    font-weight: 600;
+    transition: width 0.5s ease;
+}
+
+.accuracy-score {
+    font-size: 1.2rem;
+    color: #FFE14D;
+    margin: 2rem 0;
+}
+
+.quiz-complete {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.quiz-complete h3 {
+    color: #FFE14D;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.quiz-complete p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.quiz-progress {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .burst-quiz-section {
+        padding: 4rem 1rem;
+    }
+
+    .quiz-container {
+        padding: 1rem;
+    }
+
+    .quiz-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .scenario-card {
+        padding: 1.5rem;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .prediction-bar {
+        height: 24px;
+        font-size: 0.9rem;
+    }
+} 
